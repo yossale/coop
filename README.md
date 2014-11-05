@@ -1,3 +1,7 @@
+####COOP
+Coop is an open source stock managment system for co-ops, developed mainly by @eyalrosen. 
+The COOP system is currently built for food co-ops and uses Hebrew as its UI language.
+
 ### Structure
 
 - **application** - (almost) all the source code
