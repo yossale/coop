@@ -1,0 +1,1 @@
+<script>alert('{$text}'); window.location = '{$url}';</script>

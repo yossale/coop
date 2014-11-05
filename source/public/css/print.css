@@ -1,0 +1,11 @@
+body
+{
+	direction: rtl;
+	font-family: Arial;
+	text-align: right;	
+}
+
+h1
+{
+	page-break-before: always;
+}

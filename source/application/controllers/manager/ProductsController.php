@@ -1,0 +1,5 @@
+<?
+class ProductsController extends Manager
+{
+	
+}

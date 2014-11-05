@@ -1,0 +1,1 @@
+{include file='common/edit_duty_report.tpl'}

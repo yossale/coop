@@ -1,0 +1,22 @@
+.myupload-ok, .myupload-error
+{
+	width: 16px;
+	height: 16px;
+	vertical-align: middle;
+	display:inline-block;
+}
+
+.myupload-ok
+{
+	background: url("ok.png");
+}
+
+.myupload-error
+{
+	background: url("error.png");
+}
+
+.myupload-preview, .myupload-view
+{
+	width: 100px;
+}

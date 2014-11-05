@@ -1,0 +1,10 @@
+#order-top label, #amount, #measure
+{
+    position: relative; 
+    bottom: 4px;
+}
+
+#order-top
+{
+    padding: 5px;
+}

@@ -1,0 +1,1 @@
+<a href="#"><img class="myupload-preview" src="{$public_path}{$img_path}" /></a>	
