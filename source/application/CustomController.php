@@ -176,7 +176,7 @@ class CustomController extends Zend_Controller_Action
 		
 		$coop_id = $this->getCoopId();
 		
-		$reports = $coop_reoprts->getAllReports($coop_id);
+		$reports = $coop_reoprts->getAllReportsInReverseOrder($coop_id);
     	$this->_smarty->assign('reports', $reports);
     	
     	$this->_smarty->assign('action', 'previous-reports');
