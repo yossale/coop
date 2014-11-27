@@ -42,8 +42,12 @@ $(document).ready(function() {
 			<tr>
 				<td><a href="javascript:void(0);" style="color: black;" class="view_report" report_id="{$row.report_id}">
 					השבוע ה-{$row.report_week_number} של {$row.report_year}
-					<span> &nbsp; &nbsp;   
-					{weeknumber_formatter year="{$row.report_year}" week="{$row.report_week_number}"}
+					<span>  
+					{weeknumber_daterange year="{$row.report_year}" week="{$row.report_week_number}"}
+					&nbsp; &nbsp;  
+					בין התאריכים: {$weekStartDate|date_format:"%d-%m-%Y"} 
+					&nbsp; ל- 
+					{$weekEndDate|date_format:"%d-%m-%Y"}
 					</span>
 				</a></td>
 			</tr>
