@@ -140,3 +140,38 @@ The cronjobs 'close_coops.php' and 'open_coops.php' are running all the time (ev
 2. `cd /home/eyal/www/coops-php`
 3. `git pull origin master`
 
+## Contributing
+
+### Getting Set-up Locally  
+
+#### Pre-requisites
+
+* PHP 
+* Server (Apache, PHP local server for development...)
+* Mysql 
+
+#### Setting Up The Database
+
+* Creating a database from the coop database schema.
+* Creating a user for the database with sufficient privileges to manipulate it. 
+
+#### Configuring The App
+
+The app configuration is stored in the source/application/configs/application.ini file. The main items we need to specify are:
+
+* Database
+    * database.params.username - A database user name with sufficient privileges to access to application database.
+    * database.params.password - The database user password
+    * database.params.dbname - The Database name
+
+#### Setting PHP Environment
+
+* Set `short_open_tag = On`. The application code uses `<? ?>` code blocks in some places in the source. This will allow the PHP parser to recognize that code.
+
+#### Setting Up The Development Server
+
+The application is a PHP application. The source serves as the deployment package also. All is needed is to point the server to the application source/public directory. 
+
+* Set up an Apache server with site configuration pointing to the source/public directory as the docroot for serving the content.
+* Alternatively, use php built-in web server. 
+`php -S 0.0.0.0:8080 -t source/public'
