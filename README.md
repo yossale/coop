@@ -175,4 +175,4 @@ The application is a PHP application. The source serves as the deployment packag
 
 * Set up an Apache server with site configuration pointing to the source/public directory as the docroot for serving the content.
 * Alternatively, use php built-in web server. 
-`php -S 0.0.0.0:8080 -t source/public'
+`php -S 0.0.0.0:8080 -t source/public`
