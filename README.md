@@ -166,6 +166,7 @@ The app configuration is stored in the source/application/configs/application.in
 
 #### Setting PHP Environment
 
+The php.ini file holds the settings for the php running environment.
 * Set `short_open_tag = On`. The application code uses `<? ?>` code blocks in some places in the source. This will allow the PHP parser to recognize that code.
 
 #### Setting Up The Development Server
