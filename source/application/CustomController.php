@@ -13,6 +13,7 @@ class CustomController extends Zend_Controller_Action
 		$this->_smarty->setCompileDir(APPLICATION_PATH . '/smarty/compiler');
 		$this->_smarty->setCacheDir(APPLICATION_PATH . '/smarty/cache');
 		$this->_smarty->setConfigDir(APPLICATION_PATH . '/smarty/configs');
+		$this->_smarty->addPluginsDir(APPLICATION_PATH . '/smarty/plugins');
 		
 		$renderer = Zend_Controller_Action_HelperBroker::getStaticHelper('viewRenderer');
 		$renderer->setNeverRender(true);

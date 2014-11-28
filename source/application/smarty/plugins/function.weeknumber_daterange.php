@@ -12,10 +12,12 @@
 function smarty_function_weeknumber_daterange ($params, &$smarty)
 {
     $startDate = new DateTime();
+    $startDate->setTime(0, 0, 0);
     $startDate->setISODate($params['year'], $params['week'], 0);
     $startDate_unixTime = $startDate->getTimestamp();
     
     $endDate = new DateTime();
+    $endDate->setTime(0, 0, 0);
     $endDate->setISODate($params['year'], $params['week'], 0);
     $endDate->add(new DateInterval('P6D'));
     $endDate_unixTime = $endDate->getTimestamp();
