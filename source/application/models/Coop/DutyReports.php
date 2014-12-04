@@ -22,6 +22,17 @@ class Coop_DutyReports extends Awsome_DbTable
 		return $results;
 	}
 	
+	public function getAllReportsInReverseOrder($coop_id)
+	{
+	    $sql = "SELECT * FROM duty_reports WHERE coop_id = " . (int)$coop_id .
+	      " " . "ORDER BY report_year DESC, report_week_number DESC";
+	    if (!$results = $this->adapter->fetchAll($sql))
+	    {
+	        return false;
+	    }
+	    return $results;
+	}
+	
 	public function editReport($id, $data)
 	{
 		return $this->edit($id, $data);
