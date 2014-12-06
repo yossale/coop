@@ -2,9 +2,9 @@
 
 <!-- date picker -->
 <link rel="stylesheet" href="{$js_path}/jquery/datepicker/datePicker.css" />
-<script src="{$js_path}/jquery/datepicker/date.js" /></script>
+<script src="{$js_path}/jquery/datepicker/date.js" ></script>
 <!--[if IE]><script src="{$js_path}/jquery/datepicker/jquery.bgiframe.js" /></script><![endif]-->
-<script src="{$js_path}/jquery/datepicker/jquery.datePicker.js" /></script>
+<script src="{$js_path}/jquery/datepicker/jquery.datePicker.js" ></script>
 
 <!-- autocomplete -->
 <link rel="stylesheet" href="{$js_path}/jquery/jquery-ui/development-bundle/themes/base/jquery.ui.all.css">
@@ -29,7 +29,7 @@
 			<a href="{$public_path}/duty/print" class="print" target="_blank">גרסה להדפסה</a>
 		</div>
 		
-                <b>עבור לדף ההזמנה של:</label>&nbsp;&nbsp;
+                <b>עבור לדף ההזמנה של:</b>&nbsp;&nbsp;
                 <select id="users">
                 <option value=""></option>
                 {foreach from=$users item=user}
@@ -41,6 +41,7 @@
 		<a>אין הזמנות.</a>
 		{else}
                 {foreach from=$orders key=group item=group_orders}
+                	<div id="orders_group_{$group}">
                     <div class="title">
                          <h3>{if $group=="payed"}שולמו{else}לא שולמו{/if}</h3>
                     </div>
@@ -58,6 +59,11 @@
 			</tr>
 			{/foreach}
 		</table>	
+			<div class="orders_group_summary">
+				<span class="orders_group_summary__label">כמות הזמנות:</span>
+				<span class="orders_group_summary__data">{$group_orders|@count}</span>
+			</div>
+			</div>
                 {/foreach}
 			
 		{/if}
