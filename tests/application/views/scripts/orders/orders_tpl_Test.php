@@ -26,6 +26,34 @@ class orders_tpl_Test extends PHPUnit_Framework_TestCase
         $this->_smarty->caching = 0;
     }
 
+    public function test_strictHtmlStructure() {
+        // ***************************
+        // Build
+        
+        $orders = array();
+        $users = array();
+        
+        $this->_smarty->assign('orders', $orders);
+        $this->_smarty->assign('users', $users);
+        // $this->_smarty->assign('action', 'index');
+        // $this->_smarty->assign('tpl_file', 'orders/orders.tpl');
+        
+        // ***************************
+        // Test
+        
+        $smarty_output = $this->_smarty->fetch(
+                PROJECT_PATH .
+                '/source/application/views/scripts/orders/orders.tpl');
+        
+        $output = '<html>' . '<head>' . '</head>' . '<body>' . $smarty_output .
+        '</body>' . '</html>';
+        
+        
+        // Test strict html parsing.
+        $dom = new DOMdocument();
+        $dom->loadHTML($output);
+    }
+    
     public function test_OrdersGroupsSummaries ()
     {
         // ***************************
@@ -94,11 +122,7 @@ class orders_tpl_Test extends PHPUnit_Framework_TestCase
         
         $output = '<html>' . '<head>' . '</head>' . '<body>' . $smarty_output .
                  '</body>' . '</html>';
-        
-        // Test strict html parsing. 
-        $dom = new DOMdocument();
-        $dom->loadHTML($output);
-        
+                     
         $html5 = new HTML5();
         $dom = $html5->loadHTML($output);
         
