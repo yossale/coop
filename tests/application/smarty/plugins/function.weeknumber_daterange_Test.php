@@ -8,7 +8,7 @@ require_once 'function.weeknumber_daterange.php';
 class smarty_function_weeknumber_daterange_Test extends PHPUnit_Framework_TestCase
 {
 
-    public function testObjectsProvider ()
+    public function domainOjectsProvider ()
     {
         return array(
                 array(
@@ -27,7 +27,7 @@ class smarty_function_weeknumber_daterange_Test extends PHPUnit_Framework_TestCa
     }
 
     /**
-     * @dataProvider testObjectsProvider
+     * @dataProvider domainOjectsProvider
      */
     public function testFunction ($year, 
             $week, 
