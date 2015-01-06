@@ -675,3 +675,8 @@ option #unpayed
     float: right;
     margin-top: 2px;
 }
+
+.orders_group_summary {
+	margin-top: 7px;
+	margin-bottom: 14px;
+}
