@@ -55,7 +55,7 @@ img
 {
 	float: left;
 	margin-left: 100px;
-} 
+}
 
 #login_page #back_to_site
 {
@@ -72,7 +72,7 @@ img
 	background-color: white;
 	padding: 0px;
 	margin-left: auto;
-	margin-right: auto; 
+	margin-right: auto;
 	text-align: right;
 }
 
@@ -90,15 +90,15 @@ img
 
 #main
 {
-	padding: 5px;	
+	padding: 5px;
 	padding-right: 0;
 	float: right;
 	width: 650px;
-}  
+}
 
 #main_without_left_panel
 {
-	padding: 5px;	
+	padding: 5px;
 	padding-right: 0;
 	float: right;
 	width: 940px;
@@ -112,7 +112,7 @@ img
 #bottom
 {
 	padding: 5px;
-} 
+}
 
 /* very top div */
 
@@ -122,7 +122,7 @@ img
 }
 
 #title_and_logged #logged_box
-{   
+{
 	float: left;
 }
 
@@ -145,8 +145,8 @@ img
 #menu ul, #submenu ul
 {
 	margin: 0;
-} 
- 
+}
+
 #menu li, #submenu li
 {
 	margin: 0;
@@ -186,7 +186,7 @@ img
 #submenu li b
 {
 	color: white;
-	font-weight: normal; 
+	font-weight: normal;
 }
 
 /* section */
@@ -219,36 +219,36 @@ img
 
 .navigate .back
 {
- 	background:transparent url('../images/back.png') center right no-repeat;	
+ 	background:transparent url('../images/back.png') center right no-repeat;
  	padding-right: 25px;
 }
 
 .navigate .add
 {
- 	background:transparent url('../images/add.png') center right no-repeat;	
+ 	background:transparent url('../images/add.png') center right no-repeat;
 }
 
 .navigate .go
 {
- 	background:transparent url('../images/go_med.png') center right no-repeat;	
+ 	background:transparent url('../images/go_med.png') center right no-repeat;
 	padding-right: 25px;
 }
 
 .navigate .edit
 {
- 	background:transparent url('../images/edit.png') center right no-repeat;	
+ 	background:transparent url('../images/edit.png') center right no-repeat;
 	padding-right: 25px;
 }
 
 .navigate .cancel
 {
- 	background:transparent url('../images/delete.png') center right no-repeat;	
+ 	background:transparent url('../images/delete.png') center right no-repeat;
 	padding-right: 25px;
 }
 
 .navigate .print
 {
- 	background:transparent url('../images/print.png') center right no-repeat;	
+ 	background:transparent url('../images/print.png') center right no-repeat;
 	padding-right: 25px;
 }
 
@@ -257,7 +257,7 @@ img
 .list table
 {
 	border: 1px solid black;
-	border-bottom: 0;	
+	border-bottom: 0;
 	border-collapse: collapse;
 }
 
@@ -283,7 +283,7 @@ img
 {
 	padding-left: 20px;
 	background-image: url('../images/td.jpg')
-} 
+}
 
 
 .list .colspan
@@ -323,28 +323,28 @@ img
 
 .list td .go
 {
- 	background:transparent url('../images/go_small.png') center right no-repeat;	
+ 	background:transparent url('../images/go_small.png') center right no-repeat;
 }
 
 .saved
 {
 	color: green;
 }
- 
+
 .list .rowalt
 {
 	background-image: none;
 	background-color: #929a7d;
 	color: white;
-} 
- 
+}
+
 /* form */
 .form label
 {
-	display: block; 
+	display: block;
 	float: right;
 	width: 70px;
-} 
+}
 
 .form p
 {
@@ -380,14 +380,14 @@ option #unpayed
 
 #order_view_type
 {
-	float: left; 
-	top: -30px; 
+	float: left;
+	top: -30px;
 	position: relative;
 }
 
 #order_view_type b
 {
-	font-weight: normal;	
+	font-weight: normal;
 }
 
 #order_view_type .change
@@ -428,7 +428,7 @@ option #unpayed
 	font-weight: bold;
 	margin-right: 10px;
     border: 1px solid;
-	border-radius: 10px;    
+	border-radius: 10px;
 }
 
 #sticky_total
@@ -512,7 +512,7 @@ option #unpayed
 #fixed_total
 {
  	box-shadow: 0 5px 15px rgba(176,176,176, 1);
-    -webkit-box-shadow: 0 5px 15px rgba(176,176,176, 1); 
+    -webkit-box-shadow: 0 5px 15px rgba(176,176,176, 1);
     -moz-box-shadow: 0 5px 15px rgba(176,176,176, 1);
 }
 
@@ -578,14 +578,14 @@ option #unpayed
 #left
 {
 	float: left;
-} 
+}
 
 #left .widget-title {
     color: #222222;
     font-weight: bold;
     font-size: 14px;
     margin: 5;
-	margin-right: 0; 
+	margin-right: 0;
     margin-top: 10px;
 }
 
@@ -598,7 +598,7 @@ option #unpayed
 #left .widget-area ul ul {
     margin: 0;
     padding: 0;
-    border: medium none;    
+    border: medium none;
     list-style: square outside none;
 }
 
@@ -679,4 +679,16 @@ option #unpayed
 .orders_group_summary {
 	margin-top: 7px;
 	margin-bottom: 14px;
+}
+
+.messages {
+	min-height: 15px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+.messages-warning {
+	background-color: red;
+	color: white;
+	opacity: 0.5;
 }

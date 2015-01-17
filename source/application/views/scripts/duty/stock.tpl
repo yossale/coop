@@ -1,8 +1,11 @@
 <script src="{$js_path}/weekly_report.js"></script>
+<script src="{$js_path}/jquery.are-you-sure.js"></script>
 
 <div class="section">
 	<div class="title">
 		<h3>מלאי</h3>
+	</div>
+	<div id="messages" class="messages">
 	</div>
 	<div>
 		<form action="{$public_path}/duty/stock" method="post">
@@ -14,11 +17,11 @@
 				{/foreach}
 			</select>
 			&nbsp;<input type="submit" value="שנה" />
-		</form>	
+		</form>
 	</div>
 	{assign var='current' value='0'}
 	<div class="content list">
-		<form action="" method="post" class="validate_me">
+		<form id="stockItemsForm" name="stockItemsForm" action="" method="post" class="validate_me">
                     <input type="hidden" name="reset_day" value="{$current_date}" />
 		<table>
 			<th>מוצר</th>
@@ -33,20 +36,20 @@
 			{assign var='current' value=$row.category_id}
 			{/if}
 			<tr>
-				<td><a class="product" id="{$row.product_id}" href="javascript:void(0);" 
+				<td><a class="product" id="{$row.product_id}" href="javascript:void(0);"
 					style="color: blue;">{$row.product_name|escape:"html"|stripslashes}</a></td>
-					
-				<td>{$row.weekly_order|string_format:"%.1f"} 
+
+				<td>{$row.weekly_order|string_format:"%.1f"}
 					{$row.product_measure|escape:"html"|stripslashes}</td>
-					
-				<td><input size="5" dir="ltr"class="required number" 
-					name="stock[{$row.product_id}]" 
+
+				<td><input size="5" dir="ltr"class="required number"
+					name="stock[{$row.product_id}]"
 					value="{if $stock[$row.product_id] == null}{$row.weekly_order|string_format:"%.1f"}{else}{$stock[$row.product_id]}{/if}" />
 					{$row.product_measure|escape:"html"|stripslashes}</td>
-					
+
 				<td><input size="40" name="comments[{$row.product_id}]"
-					value="{$comments[$row.product_id]|escape:"html"|stripslashes}" /></td>		
-			</tr> 
+					value="{$comments[$row.product_id]|escape:"html"|stripslashes}" /></td>
+			</tr>
 			<tr>
 				<td colspan="8" class="orders" id="{$row.product_id}">
 					<table>
@@ -68,13 +71,12 @@
 							<td>{if $order.order_status == "unpayed"}לא שולם{else}שולם{/if}</td>
 						</tr>
 						{/foreach}
-					</table>	
+					</table>
 				</td>
 			</tr>
 			{/foreach}
-		</table>		
+		</table>
 		<input type="submit" value="שמור" />
 	</form>
 	</div>
 </div>
-
