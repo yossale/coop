@@ -111,12 +111,22 @@
       
       setDirtyStatus($form, isDirty);
     };
+    
+    var notifyActivityDetected = function(evt){
+    	var $form = ($(this).is('form')) 
+        	? $(this)
+        	: $(this).parents('form');
+        
+    	$form.trigger('activityDetected.areYouSure', [$form]);
+    };
 
     var initForm = function($form) {
       var fields = $form.find(settings.fieldSelector);
       $(fields).each(function() { storeOrigValue($(this)); });
       $(fields).unbind(settings.fieldEvents, checkForm);
       $(fields).bind(settings.fieldEvents, checkForm);
+      $(fields).unbind(settings.fieldEvents, notifyActivityDetected);
+      $(fields).bind(settings.fieldEvents, notifyActivityDetected);
       $form.data("ays-orig-field-count", $(fields).length);
       setDirtyStatus($form, false);
     };
@@ -143,6 +153,7 @@
         if (!$field.data('ays-orig')) {
           storeOrigValue($field);
           $field.bind(settings.fieldEvents, checkForm);
+          $field.bind(settings.fieldEvents, notifyActivityDetected);
         }
       });
       // Check for changes while we're here
