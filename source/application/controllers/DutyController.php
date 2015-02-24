@@ -108,9 +108,16 @@ class DutyController extends CustomController
     	{
             $coop_stock->setStock($reset_day, $post['stock'], $post['comments'], $coop_id);
 
-            $this->_smarty->assign('text', 'השינויים נשמרו בהצלחה');
-            $this->_smarty->assign('url', PUBLIC_PATH . '/duty/stock/reset_day/' . $reset_day);
-            $this->_smarty->display('common/thanks.tpl');	
+    		if (isset($post['isAjax']) && $post['isAjax'] == true)
+			{
+				echo "1";
+			} 
+			else 
+			{
+            	$this->_smarty->assign('text', 'השינויים נשמרו בהצלחה');
+            	$this->_smarty->assign('url', PUBLIC_PATH . '/duty/stock/reset_day/' . $reset_day);
+            	$this->_smarty->display('common/thanks.tpl');
+			}	
         }
     }
 

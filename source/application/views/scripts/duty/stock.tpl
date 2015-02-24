@@ -1,3 +1,4 @@
+<script>var public_path = '{$public_path}';</script>
 <script src="{$js_path}/weekly_report.js"></script>
 <script src="{$js_path}/jquery.are-you-sure.js"></script>
 
