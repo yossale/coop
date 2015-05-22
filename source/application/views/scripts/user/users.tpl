@@ -1,6 +1,6 @@
 <div class="section">
     <div class="title">
-        <h3>ניהול משתמשים</h3>
+        <h3>חברי הקואופ</h3>
     </div>
 
     <div class="content">
