@@ -82,14 +82,13 @@ class FarmerController extends CustomController
 	}
         
 
-        public function excelAction()
-       {
-
-	$coop_products = new Coop_Products;
-	header('Content-type: application/ms-excel');
-header('Content-Disposition: attachment; filename=prices.xls');
-			$products = $coop_products->getAllFruitsAndVegtebles();		
-			$this->_smarty->assign('products', $products);
+	public function excelAction()
+	{
+		$coop_products = new Coop_Products;
+		header('Content-type: application/ms-excel');
+		header('Content-Disposition: attachment; filename=prices.xls');
+		$products = $coop_products->getAllFruitsAndVegtebles();
+		$this->_smarty->assign('products', $products);
     	$this->_smarty->display('farmer/csv.tpl');
    }
         public function printAction()
