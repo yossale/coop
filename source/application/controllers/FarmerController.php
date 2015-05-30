@@ -63,7 +63,7 @@ class FarmerController extends CustomController
 		else
 		{
 			$post = $request->getPost();
-			$coop_products->updateFruitsAndVegtebles($post['shortage'], $post['prices']);
+			$coop_products->updateFruitsAndVegtebles($post['shortage'], $post['prices'], $coop_id);
 			
 			$this->_smarty->assign('text', 'השינויים נשמרו בהצלחה');
 			$this->_smarty->assign('url', PUBLIC_PATH . '/farmer');
@@ -84,10 +84,12 @@ class FarmerController extends CustomController
 
 	public function excelAction()
 	{
+		$coop_id = $this->getCoopId();
+
 		$coop_products = new Coop_Products;
 		header('Content-type: application/ms-excel');
 		header('Content-Disposition: attachment; filename=prices.xls');
-		$products = $coop_products->getAllFruitsAndVegtebles();
+		$products = $coop_products->getAllFruitsAndVegtebles($coop_id);
 		$this->_smarty->assign('products', $products);
     	$this->_smarty->display('farmer/csv.tpl');
    }

@@ -58,16 +58,16 @@ class Coop_Products extends Awsome_DbTable
 		return $results;	
 	}
 	
-	public function updateFruitsAndVegtebles($shortage, $prices)
+	public function updateFruitsAndVegtebles($shortage, $prices, $coop_id)
 	{
-		$changes = $this->calcChanges($shortage, $prices);
+		$changes = $this->calcChanges($shortage, $prices, $coop_id);
 		$this->sendUpdatesEmail($changes);
 		$this->updateChangesInDB($changes);
 	}
 
-	private function calcChanges($shortage, $prices)
+	private function calcChanges($shortage, $prices, $coop_id)
 	{
-		$products = $this->getAllFruitsAndVegtebles();
+		$products = $this->getAllFruitsAndVegtebles($coop_id);
 			
 		$changes = array();
 		
@@ -77,23 +77,27 @@ class Coop_Products extends Awsome_DbTable
 			$name = stripslashes($product['product_name']);
 			
 			$updates = array();
-			
-			$inShortage = $shortage[$id] == "on" ? 1 : 0;
-			if ($inShortage != $product['product_in_shortage'])
-			{
-				$updates[] = Array('column' => "product_in_shortage", 'name' => 'האם במחסור',
-									'newValue' => $inShortage, 'oldValue' => $product['product_in_shortage']);
+
+			if (array_key_exists($id, $shortage)) {
+
+				$inShortage = $shortage[$id] == "on" ? 1 : 0;
+				if ($inShortage != $product['product_in_shortage']) {
+					$updates[] = Array('column' => "product_in_shortage", 'name' => 'האם במחסור',
+						'newValue' => $inShortage, 'oldValue' => $product['product_in_shortage']);
+				}
 			}
-			
-			if ($prices[$id] != $product['product_coop_cost'])
-			{
-				$updates[] = Array('column' => "product_coop_cost", 'name' => 'עלות לקואופ',
-									'newValue' => $prices[$id], 'oldValue' => $product['product_coop_cost']);
-									
-				$new_price = $prices[$id] * 1.15;
-				
-				$updates[] = Array('column' => "product_price", 'name' => 'מחיר לחברי הקואופ',
-									'newValue' => $new_price, 'oldValue' => $product['product_price']);
+
+			if (array_key_exists($id, $prices)) {
+
+				if ($prices[$id] != $product['product_coop_cost']) {
+					$updates[] = Array('column' => "product_coop_cost", 'name' => 'עלות לקואופ',
+						'newValue' => $prices[$id], 'oldValue' => $product['product_coop_cost']);
+
+					$new_price = $prices[$id] * 1.15;
+
+					$updates[] = Array('column' => "product_price", 'name' => 'מחיר לחברי הקואופ',
+						'newValue' => $new_price, 'oldValue' => $product['product_price']);
+				}
 			}
 			
 			if (!empty($updates))
