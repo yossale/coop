@@ -1,6 +1,9 @@
 <?php
 class FarmerController extends CustomController
 {
+	/* Deprecated. Commenting to prevent accidental usage.
+	 *
+
 	public function init()
 	{
 		parent::init();
@@ -100,4 +103,5 @@ class FarmerController extends CustomController
         $this->_smarty->assign('url', PUBLIC_PATH . '/farmer');
         $this->_smarty->display('common/thanks.tpl');	
     }
+	*/
 }	
